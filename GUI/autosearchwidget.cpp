@@ -7,19 +7,27 @@ AutoSearchWidget::AutoSearchWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QSplitter* mSplitter = new QSplitter(Qt::Vertical, this);
+
     manager = new AutoSearchManager;
 
-    this->startWatching();
+//    this->startWatching();
     manager->setRecordingEnabled(true);
 
     QObject::connect(manager, SIGNAL(searchFinished()), this, SLOT(onSearchFinished()));
 
     // Add webview of manager to this widget's layout
-    ui->gridLayout->addWidget(manager->webView(), 0, 0, 1, 1);
+//    manager->webView()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+//    ui->gridLayout->addWidget(manager->webView(), 0, 0, 1, 1);
+    mSplitter->addWidget(manager->webView());
 
     selector = new MeaningSelector(this);
     QObject::connect(selector, SIGNAL(meaningSelected(QString)), this, SLOT(onMeaningSelected(QString)));
-    ui->gridLayout->addWidget(selector, 1,0,1,1);
+    mSplitter->addWidget(selector);
+
+    qDebug() << Q_FUNC_INFO << selector->minimumSize();
+
+    ui->gridLayout_2->addWidget(mSplitter);
 }
 
 AutoSearchWidget::~AutoSearchWidget()
@@ -53,4 +61,9 @@ void AutoSearchWidget::startWatching()
 void AutoSearchWidget::endWatching()
 {
     manager->end();
+}
+
+void AutoSearchWidget::on_watchToggle_toggled(bool checked)
+{
+    (checked) ? startWatching():endWatching();
 }

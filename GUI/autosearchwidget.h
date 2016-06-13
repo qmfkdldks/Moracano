@@ -2,6 +2,7 @@
 #define AUTOSEARCHWIDGET_H
 
 #include <QWidget>
+#include <QSplitter>
 #include "Lib/autosearchmanager.h"
 #include "meaningselector.h"
 
@@ -31,6 +32,9 @@ public slots:
     /// This method is fired when meaningselector select a meaning.
     ///
     void onMeaningSelected(QString meaning);
+
+private slots:
+    void on_watchToggle_toggled(bool checked);
 
 private:
     Ui::AutoSearchWidget *ui;

@@ -56,17 +56,17 @@ void TextEditor::onFileSaveAction()
 {
     clearFile();
 
-    QFileDialog  dialog;
-    dialog.setAcceptMode(QFileDialog::AcceptOpen);
+    QString filename = QFileDialog::getSaveFileName(this);
 
-    if(dialog.exec() == QDialog::Accepted)
+    if(!filename.isEmpty())
     {
-        qDebug() << Q_FUNC_INFO << "Selected path" << dialog.selectedFiles();
-        mFile = new QFile(dialog.selectedFiles().first());
+        qDebug() << Q_FUNC_INFO << "Selected path" << filename;
+        mFile = new QFile(filename);
 
         if(mFile->open(QFile::WriteOnly))
         {
             QTextStream stream(mFile);
+            stream.setCodec("UTF-8");
             stream << (this->mTextEdit->toPlainText());
         }
     }

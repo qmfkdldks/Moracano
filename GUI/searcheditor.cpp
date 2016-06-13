@@ -10,6 +10,7 @@ SearchEditor::SearchEditor(QWidget *parent) :
 
     mAutoSearchWidget = new AutoSearchWidget(this);
     mTextEditor = new TextEditor(this);
+    mTextEditor->setMinimumSize(200, 100);
 
     mSplitter = new QSplitter(this);
     mSplitter->addWidget(mAutoSearchWidget);

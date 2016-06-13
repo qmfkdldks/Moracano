@@ -4,6 +4,8 @@ MeaningSelector::MeaningSelector(QWidget *parent, Qt::WindowFlags f) : QWidget(p
 {
     mGridLayout = new QGridLayout(this);
     mScrollArea = new QScrollArea(this);
+    mScrollArea->setWidgetResizable(true);
+    qDebug() << Q_FUNC_INFO << mScrollArea->minimumSize();
     mGridLayout->addWidget(mScrollArea);
     mButtonsWidget = nullptr;
 }
@@ -37,6 +39,7 @@ void MeaningSelector::setMeanings(const QList<QString> &meanings)
     this->repaint();
 
     mButtonsWidget = new QWidget(0);
+    mButtonsWidget->setStyleSheet("Background-color:grey;");
     QHBoxLayout *mLayout = new QHBoxLayout(0);
 
     foreach (const QString &str, meanings) {
@@ -58,5 +61,5 @@ void MeaningSelector::onClicked()
     qDebug() << Q_FUNC_INFO << btn->text() << "Clicked";
 
     mSelectedMeaning = btn->text();
-    emit meaningSelected(mSelectedMeaning);
+    emit meaningSelected((mSelectedMeaning).toUtf8());
 }
