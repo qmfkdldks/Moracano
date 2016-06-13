@@ -34,7 +34,7 @@ void AutoSearchManager::record(QString word, QString meaning)
     // Open the file.
     mFile = new QFile(QDate::currentDate().toString(Qt::ISODate), this);
     // If user decide to log the search result
-    if(mFile->open(QFile::Append) && logEnabled)
+    if(mFile->open(QFile::Append) && recordingEnabled)
     {
         QTextStream stream(mFile);
 
@@ -98,16 +98,16 @@ QList<QString> AutoSearchManager::getMeanings() const
     return mMeanings;
 }
 
-bool AutoSearchManager::getLogEnabled() const
+bool AutoSearchManager::getRecordingEnabled() const
 {
-    return logEnabled;
+    return recordingEnabled;
 }
 
 ///
 
-void AutoSearchManager::setLogEnabled(bool value)
+void AutoSearchManager::setRecordingEnabled(bool value)
 {
-    logEnabled = value;
+    recordingEnabled = value;
 }
 
 QWebView *AutoSearchManager::webView() const

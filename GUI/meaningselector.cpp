@@ -38,7 +38,6 @@ void MeaningSelector::setMeanings(const QList<QString> &meanings)
     }
 
     this->setLayout(mLayout);
-    this->repaint();
 }
 
 void MeaningSelector::onClicked()

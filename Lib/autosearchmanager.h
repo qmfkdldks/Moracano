@@ -12,16 +12,28 @@ Q_OBJECT
 public:
     AutoSearchManager();
 
+    ///
+    /// \brief start
+    /// Start watching the clipboard copy action.
+    ///
     void start();
+
+    ///
+    /// \brief end
+    /// End watching.
+    ///
+    ///
     void end();
 
-    // This method write word and meaning on the file in the smae folder.
+    /// \brief record
+    ///
+    /// This method write word and meaning on the file in the smae folder.
     void record(QString word, QString meaning = QString());
 
     QWebView *webView() const;
 
-    bool getLogEnabled() const;
-    void setLogEnabled(bool value);
+    bool getRecordingEnabled() const;
+    void setRecordingEnabled(bool value);
 
     QList<QString> getMeanings() const;
 
@@ -50,8 +62,8 @@ private:
     QString mCopyText;
     // Searched Meaning List.
     QList<QString> mMeanings;
-
-    bool logEnabled;
+    // Whether enable recording
+    bool recordingEnabled;
 };
 
 #endif // AUTOSEARCHMANAGER_H

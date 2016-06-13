@@ -8,9 +8,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
 
-    AutoSearchWidget *serachWiget = new AutoSearchWidget(this);
-
-    this->setCentralWidget(serachWiget);
+//    AutoSearchWidget *serachWiget = new AutoSearchWidget(this);
+//    this->setCentralWidget(serachWiget);
+    TextEditor *editor = new TextEditor(this);
+    editor->show();
 }
 
 MainWindow::~MainWindow()

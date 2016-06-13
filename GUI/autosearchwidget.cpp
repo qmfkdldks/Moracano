@@ -9,7 +9,7 @@ AutoSearchWidget::AutoSearchWidget(QWidget *parent) :
 
     manager = new AutoSearchManager;
     manager->start();
-    manager->setLogEnabled(true);
+    manager->setRecordingEnabled(true);
 
     QObject::connect(manager, SIGNAL(searchFinished()), this, SLOT(onSearchFinished()));
 

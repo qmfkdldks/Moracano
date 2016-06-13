@@ -8,6 +8,7 @@
 #include <moracanoengine.h>
 
 #include "GUI/autosearchwidget.h"
+#include "GUI/texteditor.h"
 
 namespace Ui {
 class MainWindow;
