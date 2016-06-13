@@ -57,11 +57,14 @@ void AutoSearchManager::on_load_finished()
 
     if(coll.count() > 0)
     {
-
+        // Delete all last record (meanings).
+        mMeanings.clear();
         foreach (const QWebElement& e, coll)
         {
             QString text = e.toInnerXml().remove(QRegExp("[\\n\\t\\r]"));
-            qDebug() << text;
+            qDebug() << Q_FUNC_INFO << text;
+            // Remove the html tags
+            text.remove(QRegExp("<[^>]*>"));
             mMeanings.append(text);
         }
 

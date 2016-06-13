@@ -1,8 +1,14 @@
 #ifndef TEXTEDITOR_H
 #define TEXTEDITOR_H
 
+#include <QDebug>
+
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
 #include "TextEditor/mrichtextedit.h"
+
 namespace Ui {
 class TextEditor;
 }
@@ -15,9 +21,15 @@ public:
     explicit TextEditor(QWidget *parent = 0);
     ~TextEditor();
 
+public slots:
+    void onFileOpenAction();
+
 private:
     Ui::TextEditor *ui;
     MRichTextEdit *mTextEdit;
+    QFile *mFile;
+
+    void clearFile();
 };
 
 #endif // TEXTEDITOR_H

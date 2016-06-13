@@ -2,48 +2,60 @@
 
 MeaningSelector::MeaningSelector(QWidget *parent, Qt::WindowFlags f) : QWidget(parent, f)
 {
-    mLayout = nullptr;
+    mGridLayout = new QGridLayout(this);
+    mScrollArea = new QScrollArea(this);
+    mGridLayout->addWidget(mScrollArea);
+    mButtonsWidget = nullptr;
 }
 
-MeaningSelector::MeaningSelector(const QList<QString> &meanings, QWidget *parent)
+MeaningSelector::MeaningSelector(const QList<QString> &meanings, QWidget *parent, Qt::WindowFlags f) : QWidget(parent, f)
 {
     setMeanings(meanings);
 }
 
 void MeaningSelector::setMeanings(const QList<QString> &meanings)
 {
-    QLayout* clayout = this->layout();
-    if(clayout)
+//    std::for_each(mButtons.begin(), mButtons.end(), [this](QPushButton *btn){
+//        qDebug() << btn << "Deleted";
+//        btn->setVisible(false);
+//        delete btn;
+//    });
+
+    if(mButtonsWidget)
     {
-        qDebug() << Q_FUNC_INFO << "Delete children";
-        // Delete All.
-        QLayoutItem *item;
-        while ((item = clayout->takeAt(0)) != 0)
+        QLayout* layout = mButtonsWidget->layout();
+        if(layout)
         {
-            delete item->widget();
-            delete item;
+            QLayoutItem *item = nullptr;
+            while(item = layout->takeAt(0))
+                delete item;
+            delete layout;
         }
-        delete clayout;
+        delete mButtonsWidget;
     }
 
-    mLayout = new QHBoxLayout(this);
+    this->repaint();
 
+    mButtonsWidget = new QWidget(0);
+    QHBoxLayout *mLayout = new QHBoxLayout(0);
 
     foreach (const QString &str, meanings) {
         QPushButton* btn = new QPushButton(str, this);
+        qDebug() << Q_FUNC_INFO << btn << "Created";
         btn->adjustSize();
         mLayout->addWidget(btn);
         QObject::connect(btn, SIGNAL(clicked(bool)), this, SLOT(onClicked()));
         mButtons.append(btn);
     }
 
-    this->setLayout(mLayout);
+    mButtonsWidget->setLayout(mLayout);
+    mScrollArea->setWidget(mButtonsWidget);
 }
 
 void MeaningSelector::onClicked()
 {
     QPushButton* btn = qobject_cast<QPushButton*>(this->sender());
-    qDebug() << btn->text() << "Clicked";
+    qDebug() << Q_FUNC_INFO << btn->text() << "Clicked";
 
     mSelectedMeaning = btn->text();
     emit meaningSelected(mSelectedMeaning);

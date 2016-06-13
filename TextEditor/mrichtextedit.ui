@@ -563,7 +563,7 @@
      <property name="styleSheet">
       <string notr="true">font: 16pt &quot;Meiryo&quot;;
 color:rgb(255, 255, 255);
-background-color: rgb(255, 195, 142);</string>
+background-color: rgb(139, 139, 139);</string>
      </property>
      <property name="autoFormatting">
       <set>QTextEdit::AutoNone</set>

@@ -4,6 +4,7 @@
 #include <QDebug>
 
 #include <QWidget>
+#include <QScrollArea>
 #include <QHBoxLayout>
 #include <QPushButton>
 
@@ -13,7 +14,7 @@ class MeaningSelector : public QWidget
 Q_OBJECT
 public:
     MeaningSelector(QWidget * parent = 0, Qt::WindowFlags f = 0);
-    MeaningSelector(const QList<QString> &meanings, QWidget * parent = 0);
+    MeaningSelector(const QList<QString> &meanings, QWidget * parent = 0, Qt::WindowFlags f = 0);
 
     void setMeanings(const QList<QString>& meanings);
 signals:
@@ -23,9 +24,12 @@ public slots:
     void onClicked();
 
 private:
-    QHBoxLayout *mLayout;
-    QList<QPushButton*> mButtons;
+    QScrollArea *mScrollArea;
+    QGridLayout *mGridLayout;
 
+    QWidget *mButtonsWidget;
+
+    QList<QPushButton*> mButtons;
     QString mSelectedMeaning;
 };
 
