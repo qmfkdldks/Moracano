@@ -56,7 +56,7 @@ void TextEditor::onFileSaveAction()
 {
     clearFile();
 
-    QString filename = QFileDialog::getSaveFileName(this);
+    QString filename = QFileDialog::getSaveFileName(this, tr("Save File"), "", tr("Text files (*.txt)"));
 
     if(!filename.isEmpty())
     {

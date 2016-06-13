@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>819</width>
-    <height>312</height>
+    <width>778</width>
+    <height>299</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -563,7 +563,7 @@
      <property name="styleSheet">
       <string notr="true">font: 16pt &quot;Meiryo&quot;;
 color:rgb(255, 255, 255);
-background-color: rgb(139, 139, 139);</string>
+background-color: rgba(125, 59, 59, 190);</string>
      </property>
      <property name="autoFormatting">
       <set>QTextEdit::AutoNone</set>
@@ -576,7 +576,7 @@ background-color: rgb(139, 139, 139);</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Meiryo'; font-size:16pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;dfdffffff&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>

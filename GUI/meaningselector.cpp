@@ -39,7 +39,6 @@ void MeaningSelector::setMeanings(const QList<QString> &meanings)
     this->repaint();
 
     mButtonsWidget = new QWidget(0);
-    mButtonsWidget->setStyleSheet("Background-color:grey;");
     QHBoxLayout *mLayout = new QHBoxLayout(0);
 
     foreach (const QString &str, meanings) {
