@@ -41,6 +41,8 @@ class MRichTextEdit : public QWidget, protected Ui::MRichTextEdit {
     QTextCursor    textCursor() const { return f_textedit->textCursor(); }
     void           setTextCursor(const QTextCursor& cursor) { f_textedit->setTextCursor(cursor); }
 
+
+    QTextEdit *getTextEdit();
   public slots:
     void setText(const QString &text);
 

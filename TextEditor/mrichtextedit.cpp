@@ -544,6 +544,11 @@ QString MRichTextEdit::toHtml() const {
     return s;
 }
 
+QTextEdit *MRichTextEdit::getTextEdit()
+{
+    return f_textedit;
+}
+
 void MRichTextEdit::increaseIndentation() {
     indent(+1);
 }

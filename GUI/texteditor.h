@@ -21,8 +21,11 @@ public:
     explicit TextEditor(QWidget *parent = 0);
     ~TextEditor();
 
+    MRichTextEdit *textEdit() const;
+
 public slots:
     void onFileOpenAction();
+    void onFileSaveAction();
 
 private:
     Ui::TextEditor *ui;

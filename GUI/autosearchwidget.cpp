@@ -8,7 +8,8 @@ AutoSearchWidget::AutoSearchWidget(QWidget *parent) :
     ui->setupUi(this);
 
     manager = new AutoSearchManager;
-    manager->start();
+
+    this->startWatching();
     manager->setRecordingEnabled(true);
 
     QObject::connect(manager, SIGNAL(searchFinished()), this, SLOT(onSearchFinished()));
@@ -36,4 +37,20 @@ void AutoSearchWidget::onMeaningSelected(QString meaning)
 {
     // Get Current copied text to write on the log.
     manager->record(manager->getCopyText(), meaning);
+
+}
+
+MeaningSelector *AutoSearchWidget::getSelector() const
+{
+    return selector;
+}
+
+void AutoSearchWidget::startWatching()
+{
+    manager->start();
+}
+
+void AutoSearchWidget::endWatching()
+{
+    manager->end();
 }

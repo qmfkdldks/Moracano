@@ -10,6 +10,8 @@
 #include "GUI/autosearchwidget.h"
 #include "GUI/texteditor.h"
 
+#include "GUI/searcheditor.h"
+
 namespace Ui {
 class MainWindow;
 }

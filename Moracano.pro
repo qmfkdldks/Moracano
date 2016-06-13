@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     TextEditor/mtextedit.cpp \
     Lib/autosearchmanager.cpp \
     GUI/autosearchwidget.cpp \
-    GUI/texteditor.cpp
+    GUI/texteditor.cpp \
+    GUI/searcheditor.cpp
 
 HEADERS  += mainwindow.h \
     moracanoengine.h \
@@ -42,12 +43,14 @@ HEADERS  += mainwindow.h \
     TextEditor/mtextedit.h \
     Lib/autosearchmanager.h \
     GUI/autosearchwidget.h \
-    GUI/texteditor.h
+    GUI/texteditor.h \
+    GUI/searcheditor.h
 
 FORMS    += mainwindow.ui \
     TextEditor/mrichtextedit.ui \
     GUI/autosearchwidget.ui \
-    GUI/texteditor.ui
+    GUI/texteditor.ui \
+    GUI/searcheditor.ui
 
 SUBDIRS += \
     TextEditor/MRichTextEditor.pro

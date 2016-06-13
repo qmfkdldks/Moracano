@@ -17,6 +17,11 @@ public:
     explicit AutoSearchWidget(QWidget *parent = 0);
     ~AutoSearchWidget();
 
+    MeaningSelector *getSelector() const;
+
+    void startWatching();
+    void endWatching();
+
 public slots:
     void onSearchFinished();
 
