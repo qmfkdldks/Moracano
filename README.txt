@@ -1,0 +1,1 @@
+The application works with html, css styling using qt webkit bridge tech.
